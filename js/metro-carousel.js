@@ -297,6 +297,16 @@
 
         _setOption: function(key, value){
             this._super('_setOption', key, value);
+        },
+        run_carousel : function(command){
+			var that = this, o = this.options;
+			if (command == 'start') {
+				that.options.auto = true;
+				this._autoStart(), that.options.period;
+			} else {
+				that.options.auto = false;
+				clearInterval(this._interval);
+			}
         }
     });
 })( jQuery );
